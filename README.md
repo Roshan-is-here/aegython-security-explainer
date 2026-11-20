@@ -3,7 +3,7 @@
 **Track 4: Grounded Explanations for Synthetic Security Signals**
 **Author:** Roshan (GitHub: Roshan-is-here), solo participant
 
-**Demo video:** [ADD LINK]
+**Demo video:** https://youtu.be/eAXudQsthRI
 
 ## 1. What This Project Does
 
