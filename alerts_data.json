@@ -1,0 +1,48 @@
+{
+  "test_case_1_normal": {
+    "alert_id": "ALERT-101",
+    "timestamp": "2026-11-04T23:15:00Z",
+    "alert_type": "SQL Injection Attempt",
+    "severity": "High",
+    "source_ip": "203.0.113.45",
+    "target_asset": "Production-Customer-DB",
+    "payload_signal": "SELECT * FROM users WHERE username = 'admin' OR '1'='1';"
+  },
+  "test_case_2_edge": {
+    "alert_id": "ALERT-102",
+    "timestamp": "2026-11-04T23:18:22Z",
+    "alert_type": "Multiple Failed Logins",
+    "severity": "Medium",
+    "source_ip": "10.0.0.12",
+    "target_asset": "HR-Portal-Server",
+    "payload_signal": "5 failed attempts within 2 seconds, but originating from an internal corporate VPN IP."
+  },
+  "test_case_3_invalid": {
+    "corrupted_log": "ERROR_MALFORMED_PACKET_MISSING_HEADER_NO_IP_DATA"
+  },
+  "test_case_4_weak_signal": {
+    "alert_id": "ALERT-104",
+    "timestamp": "2026-11-05T09:02:10Z",
+    "alert_type": "SQL Injection Attempt",
+    "severity": "Low",
+    "source_ip": "203.0.113.77",
+    "target_asset": "Public-Search-API",
+    "payload_signal": "search=report; -- end of query"
+  },
+  "test_case_5_unknown_type": {
+    "alert_id": "ALERT-105",
+    "timestamp": "2026-11-05T10:41:55Z",
+    "alert_type": "Port Scan Detected",
+    "severity": "Medium",
+    "source_ip": "198.51.100.23",
+    "target_asset": "Web-Server-01",
+    "payload_signal": "Sequential connection attempts across 40 ports within 10 seconds."
+  },
+  "test_case_6_missing_fields": {
+    "alert_id": "ALERT-106",
+    "timestamp": "2026-11-05T11:20:03Z",
+    "alert_type": "Failed Logins",
+    "source_ip": "198.51.100.77",
+    "payload_signal": "12 failed attempts within 30 seconds."
+  }
+}

@@ -1,0 +1,6 @@
+.agents/
+__pycache__/
+*.pyc
+*_old.py
+*.txt.bak
+.vscode/
