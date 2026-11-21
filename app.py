@@ -10,6 +10,7 @@ st.set_page_config(page_title="Rule-Based SOC Alert Explainer", page_icon="ðŸ›¡ï
 
 DATA_FILE = Path(__file__).parent / "alerts_data.json"
 UNCERTAINTY_COLORS = {"Low": "green", "Medium": "orange", "High": "red"}
+MAX_INPUT_CHARS = 5000  # strict cap on pasted input
 
 
 def escape_md(text: str) -> str:
@@ -46,12 +47,14 @@ if data_mode == "Select from Test Suite Profile":
         selected_alert = mock_database[case_choice]
         st.json(selected_alert)  # raw log preview for the analyst
 else:
-    raw_input_str = st.text_area("Paste custom structured JSON object data below:", height=150)
+    raw_input_str = st.text_area(
+        "Paste custom structured JSON object data below:", height=150, max_chars=MAX_INPUT_CHARS
+    )
     if raw_input_str.strip():
         try:
             selected_alert = json.loads(raw_input_str)
             st.success("Valid JSON formatting verified.")
-        except json.JSONDecodeError:
+        except (json.JSONDecodeError, RecursionError):
             st.error("Invalid JSON. The engine will treat this input as a malformed log.")
             selected_alert = "MALFORMED"
 
